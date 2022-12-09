@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+  </head>
+  <title>비교</title>
+  <body>
+    <script>
+      // == 동등연산자
+      console.log(1 == 2); //f
+      console.log(1 == 1); //t
+      console.log("one" == "one"); //t
+      console.log("hey" == "go"); //f
+
+      // === '정확' 일치연산자
+      console.log(1 === "1"); //f
+      console.log(1 == "1"); //t //데이터타입이 다르더라도 실질적 의미 같으면 같다 인정해줌
+      console.log(undefined===null); //f //null은 프로그래머가 의도가 들어있다
+      console.log(undefined==null); //t
+
+      // 숫자 1 == true //true
+      // 숫자 1 === true //false
+      console.log(true==1); //t
+      console.log(true==2); //f
+      console.log(true==3); //f
+      console.log(true===1); //f
+    </script>
+  </body>
+</html>
