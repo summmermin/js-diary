@@ -28,6 +28,7 @@ for (let y = 0; y < 6; y++) {
         level: `level${y}`
     })
 }
+
 console.log(list3);
 
 function listCircle(click) {
