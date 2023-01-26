@@ -9,12 +9,22 @@
 
 </article>
 <input type="button" value="fetch" onclick="
-fetch('html').then(function (response){
+/*fetch('html').then(function (response){
     response.text().then(function (text){
         // alert(text);
         document.querySelector('article').innerHTML=text;
     })
-})
+})*/
+// 비동기 Asynchronous
+fetch('html').then(function (res){
+    if(res.status=='404'){
+        alert('파일이 not found')
+    }
+    else {
+        res.text().then(function (text){
+            document.querySelector('article').innerHTML=text;
+        })}
+});
 ">
 <input type="button" value="fetch" onclick="
 fetch('css').then(function (response){
@@ -24,5 +34,28 @@ fetch('css').then(function (response){
     })
 })
 ">
+<input type="button" value="fetch" onclick="
+fetch('javascript').then(function (res){
+    if(res.status=='404'){
+        alert('파일이 not found')
+    }
+    else {document.querySelector('article').innerHTML=text;}
+});
+">
+<!--
+fetch('html') 웹브라우저야 html이라는 파일을 서버에게 응답해줘
+fetch('인자 데이터') 는 인자 데이터를 서버에게 요청하는 함수다
+-->
+<!--
+.then(function (response){
+    response.text().then(function (text){
+        // alert(text);
+        document.querySelector('article').innerHTML=text;
+    })
+})
+-->
+<!--
+웹브라우저가 응답받는게 끝나면 그때 callbackme 호출하라
+-->
 </body>
 </html>
