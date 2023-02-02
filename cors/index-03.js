@@ -24,7 +24,7 @@ app.get('/summer2', (req, res) => {
 * GET과 POST의 가장 큰 차이점은 GET은 request 시에 Header만 존재하고 Body가 없다는 것이다.
 * URL 뒤 ? 다음에 key=value&key=value… 이런식으로 key=value를 &로 연결해서 데이터를 보낸다. 이것을 query 파라메터라고 한다.
 * GET은 requset시에 body:x에 데이터를 보낼수 없다(그래서 query 파라메터 사용)
-* POST는 body에 데이터를 보낼수 있음 & query 파라메터 사용도 가능 둘다 가능
+* POST는 body에 데이터를 보낼수 있음 & query 파라메터 사용도 가능 // POST 둘다 가능
 * */
 
 // POST 방식으로 query 파라메터 사용하기
@@ -40,9 +40,14 @@ app.use(express.urlencoded({
 
 app.post('/summer4', (req, res) => {
     const {name} = req.body;
-    res.send(`hello ${name}`)
+    const result={
+        code:0,
+        message:'success'
+    };
+    res.send(`hello ${name}! 저의 결과는 ${result}`)
 })
 
+// app 서버 listen 들어라(실행해라) port(몇번포트로 실행할 것인지)
 app.listen(8080,()=>{
     console.log(`server is listening 8080`)
 })
