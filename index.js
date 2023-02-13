@@ -78,21 +78,27 @@ app.get('/api/sales/:apikey/:year', async (req, res) => {
     let {apikey, year} = req.params;
     console.log(year)
 
-    if (year == '2022') {
-        let data = [
-            {product: '핸드폰', amount: 10000},
-            {product: '컴퓨터', amount: 500}
-        ];
-        res.send(data)
-    } else if (year == '2023') {
-        let data = [
-            {product: '감자', amount: 700000000},
-            {product: '고구마', amount: 90900000}
-        ]
-        res.send(data)
+    if (!uuidAPIKey.isAPIKey(apikey) || !uuidAPIKey.check(apikey, key.uuid)) {
+        res.send('api is not valid.')
     } else {
-        res.send('type is not correct.');
+        if (year == '2022') {
+            let data = [
+                {product: '핸드폰', amount: 10000},
+                {product: '컴퓨터', amount: 500}
+            ];
+            res.send(data)
+        } else if (year == '2023') {
+            let data = [
+                {product: '감자', amount: 700000000},
+                {product: '고구마', amount: 90900000}
+            ]
+            res.send(data)
+        } else {
+            res.send('type is not correct.');
+        }
     }
+
+
 })
 
 console.log(uuidAPIKey.create());
